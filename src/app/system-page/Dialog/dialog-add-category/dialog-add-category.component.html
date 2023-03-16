@@ -1,0 +1,13 @@
+<div class="dialog-space">
+  <p class="title-dialog">Add Category</p>
+  <div class="section-info">
+    <form class="example-form form" [formGroup]="FormAddCategory">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Name Category</mat-label>
+        <input type="text" matInput placeholder="Enter your name product..." formControlName="name">
+      </mat-form-field>
+
+      <button class="btn-login" (click)="HandleAddCategory()">ADD</button>
+    </form>
+  </div>
+</div>

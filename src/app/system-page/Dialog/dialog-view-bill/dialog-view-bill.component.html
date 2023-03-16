@@ -1,0 +1,32 @@
+<div class="layout-dialog">
+  <div class="group-ino grid grid-cols-2 gap-5">
+    <div class="info-customer">
+      <p class="text-header">Customer : <span class="text-red-400">{{data.nameCustomer}}</span></p>
+      <p class="text-header">Adress Tranfer : <span class="text-red-400">{{data.addressTranfer}}</span></p>
+      <p class="text-header">Phone Number : <span class="text-red-400">{{data.phoneNumber}}</span></p>
+    </div>
+    <div class="info-bill">
+      <span class="totalbill mx-5">TotalBill : {{data.totalBill}}</span>
+      <span class="pay-notice text-white" style="background-color: {{colorNitice}}">{{status}}</span>
+    </div>
+  </div>
+  <div class="orders mt-5 py-3">
+    <div class="order grid grid-cols-5 justify-center items-center">
+      <div class="div flex justify-center items-center">Product</div>
+      <div class="div flex justify-center items-center">Name</div>
+      <div class="div flex justify-center items-center">QuantityOrder</div>
+      <div class="div flex justify-center items-center">Price</div>
+      <div class="div flex justify-center items-center">TotalOrder</div>
+    </div>
+  </div>
+  <div class="orders">
+    <div class="order gap-5 grid grid-cols-5 justify-center items-center" *ngFor="let order of data.orders" >
+      <img class="img" src="{{order.imageURL}}" alt="">
+      <p class="text-base flex justify-center items-center">{{order.name}}</p>
+      <p class="text-base flex justify-center items-center">{{order.quantityOrder}}</p>
+      <p class="text-base flex justify-center items-center">{{order.displayPrice}}</p>
+      <p class="text-base flex justify-center items-center">{{order.displayTotalMoney}}</p>
+    </div>
+  </div>
+  <button *ngIf="!data.isPayed" (click)="confirmBill(data.billID)" class="btn-pay flex justify-center w-full px-2 py-5 mt-5 rounded-xl">Xác nhận thanh toán</button>
+</div>

@@ -1,0 +1,60 @@
+<div class="dialog-space">
+  <p class="title-dialog">Add Product</p>
+  <div class="section-add-product">
+    <div class="section-pickimage">
+      <img [src]="url" alt="" class="displayimg">
+      <label class="label" for="pickfile"><i class="fa-regular fa-image"></i> Chose a pictue</label>
+      <input id="pickfile" (change)="onSelectFile($event)" type="file" class="pickimg">
+    </div>
+    <div class="section-info">
+      <form class="example-form form" [formGroup]="FormEditProduct">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Name Product</mat-label>
+          <input type="text" matInput placeholder="Enter your name product..." formControlName="name">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Description</mat-label>
+          <input type="text" matInput placeholder="Description product..." formControlName="description">
+        </mat-form-field>
+
+        <!--<mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>ImageURL</mat-label>
+          <input type="text" matInput placeholder="Image url..." formControlName="imageURL">
+        </mat-form-field>-->
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Quantity Available</mat-label>
+          <input type="text" matInput placeholder="Quantity Available..." formControlName="quantityAvailable">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Price</mat-label>
+          <input type="text" matInput placeholder="Price Product..." formControlName="price">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Size</mat-label>
+          <input type="text" matInput placeholder="Size Product..." formControlName="size">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Brand</mat-label>
+          <input type="text" matInput placeholder="Brand Product..." formControlName="brand">
+        </mat-form-field>
+
+        <div class="chosecategory">
+          <span>Categorys</span>
+          <div class="listcategory">
+            <div class="" *ngFor="let c of ListCategory">
+              <input type="checkbox" [value]="c.categoryID" [checked]="isChecked(c.categoryID)" (change)="onCheckBox($event)" formArrayName="categorieIDs">
+              <label [for]="c.categoryID">{{c.name}}</label>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn-login" (click)="HandleEditProduct()">Edit</button>
+      </form>
+    </div>
+  </div>
+</div>

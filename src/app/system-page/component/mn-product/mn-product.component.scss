@@ -1,0 +1,41 @@
+.component{
+  .title{
+    @apply text-2xl px-5 pt-5;
+
+  }
+  .search-add-action{
+    @apply flex flex-row justify-between items-center my-5 px-5;
+
+    .search-group{
+      @apply flex flex-row justify-center items-center;
+      .ip-search{
+        @apply text-xl py-1 px-5 rounded-lg;
+        width: 400px;
+      }
+      .icon-search{
+        @apply text-2xl mx-5 hover:text-black px-2 py-1 rounded-full hover:bg-white;
+      }
+    }
+    .icon-add-user{
+      @apply text-2xl mx-5 hover:text-black px-2 py-2 rounded-full hover:bg-white;
+    }
+  }
+  .table-container{
+    @apply w-full px-5 overflow-hidden;
+    .table{
+      @apply w-full;
+      @apply bg-white ;
+      color: black;
+      .row-table{
+        border-bottom: 1px solid black;
+        .table-element{
+          @apply text-center py-3;
+        }
+      }
+      td{
+        @apply px-3;
+      }
+    }
+  }
+
+}

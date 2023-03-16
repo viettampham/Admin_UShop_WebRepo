@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+<div class="page-layout">
+  <mat-drawer-container class="example-container sidenav" >
+    <mat-drawer class="nav-left " mode="side" [(opened)]="opened">
+      <div class="flex flex-row items-center my-3">
+        <img src="assets/img/logo.jpg" alt="" class="logo w-16 h-16 rounded-full">
+        <span class="text-xl">ShoeStore</span>
+      </div>
+      <div class="h-3/4 overflow-hidden rounded-2xl mt-10" style="background: rgb(208, 241, 239);">
+        <ng-material-multilevel-menu [configuration]='config' [items]='appitems' class="mt-5 h-full">
+        </ng-material-multilevel-menu>
+      </div>
+    </mat-drawer>
+    <mat-drawer-content class="nav-right">
+      <div class="header">
+        <button (click)="opened=!opened" class="btn-toggle">
+          <i class="fa-solid fa-bars text-2xl p-3 rounded-xl hover:text-black hover:bg-white"></i>
+        </button>
+        <div class="user-group">
+          <span class="username-text text-base">{{DisplayName}}</span>
+          <i class="fa-solid fa-user icon-user">
+            <div class="model-user-action">
+              <ul class="action-user">
+                <li class="item"><button>Change Password</button></li>
+                <li class="item"><button>Logout</button></li>
+              </ul>
+            </div>
+          </i>
+        </div>
+      </div>
+      <div class="container">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>

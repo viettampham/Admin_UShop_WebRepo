@@ -1,0 +1,18 @@
+.dialog-space{
+  @apply h-full;
+  .title-dialog{
+    @apply text-2xl;
+    color: #fab1a0;
+  }
+  .form{
+    @apply flex flex-col;
+    .btn-login{
+      @apply px-5 py-2 rounded-full text-white;
+      background-color: #fab1a0;
+    }
+    .btn-login:hover{
+      background-color: #dfe6e9;
+      color: #fab1a0;
+    }
+  }
+}

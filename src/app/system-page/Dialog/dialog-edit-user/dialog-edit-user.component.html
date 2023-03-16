@@ -1,0 +1,29 @@
+<mat-dialog-content class="w-full h-3/4 mat-typography dialog">
+  <div class="page-layout">
+    <div class="login-layout">
+      <img src="assets/img/logo.jpg" alt="" class="logo">
+      <span class="header">Edit User</span>
+      <form class="example-form login-form" [formGroup]="dataForm">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>UserName</mat-label>
+          <input type="email" matInput placeholder="Enter your email..." formControlName="userName">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Name</mat-label>
+          <input type="text" matInput placeholder="Enter your name..." formControlName="name">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Address</mat-label>
+          <input type="text" matInput placeholder="Enter your address..." formControlName="address">
+        </mat-form-field>
+        <button class="btn-login" (click)="HandleEdit()">Edit</button>
+      </form>
+    </div>
+
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close="">Cancel</button>
+</mat-dialog-actions>

@@ -1,0 +1,29 @@
+.layout-dialog{
+  .orders{
+    .order{
+      .img{
+        width: 100px;
+      }
+    }
+  }
+
+  .info-bill{
+    display: block;
+    text-align: end;
+    margin-top: 20px;
+    .totalbill{
+      color: white;
+      background-color: #fab1a0;
+      border-radius: 4px;
+      padding: 8px 16px;
+    }
+    .pay-notice{
+      border-radius: 4px;
+      padding: 8px 16px;
+    }
+  }
+  .btn-pay{
+    background-color: #2d3436;
+    color: white;
+  }
+}
