@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {JwtHelperService} from "@auth0/angular-jwt";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-system-page',
@@ -11,7 +12,8 @@ export class SystemPageComponent implements OnInit {
   DisplayName = ''
 
 
-  constructor(private jwtHelperService:JwtHelperService) { }
+  constructor(private route:Router,
+    private jwtHelperService:JwtHelperService) { }
 
   ngOnInit(): void {
     console.log(localStorage.getItem('token'))
@@ -86,4 +88,7 @@ export class SystemPageComponent implements OnInit {
   ];
 
 
+  logout() {
+    this.route.navigate(['']);
+  }
 }

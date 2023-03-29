@@ -50,6 +50,16 @@
           </div>
         </div>
 
+        <div class="chosecategory">
+          <span>Type Product</span>
+          <div class="listcategory">
+            <div class="" *ngFor="let c of ListTypeProduct">
+              <input type="radio" name="chosetype"  formArrayName="typeProductID" [value]="c.id" [id]="c.id" (change)="onSelectTypeProduct($event)">
+              <label class="ml-3" [for]="c.id">{{c.name}}</label>
+            </div>
+          </div>
+        </div>
+
         <button class="btn-login" (click)="HandleAddProduct()">ADD</button>
       </form>
     </div>

@@ -44,7 +44,7 @@ export class MnProductComponent implements OnInit{
       //console.log(id)
       this.api.DeleteProduct(id).subscribe(res=>{
         alert("Success")
-        //location.reload()
+        location.reload()
       })
     }
   }

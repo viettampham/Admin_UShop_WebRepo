@@ -39,6 +39,6 @@ export class ApiService {
   DeleteBill = (id:string) => this.httpClient.delete<any>(`${environment.api_domain}/Bill/delete-bill/${id}`)
   SearchBill = (CustomerName:string) => this.httpClient.get<any>(`${environment.api_domain}/Bill/search-bill-by-name/${CustomerName}`,)
   Searchproduct =(request:string)=>this.httpClient.get<any>(`${environment.api_domain}/Product/search-product/${request}`)
-  ConfirmBill =(id:string)=> this.httpClient.post<any>(`${environment.api_domain}/Bill/confirm-bill/${id}`,id)
-
+  ConfirmBill = (id:string)=> this.httpClient.post<any>(`${environment.api_domain}/Bill/confirm-bill/${id}`,id)
+  GetTypeProduct = () => this.httpClient.get<any>(`${environment.api_domain}/TypeProduct/get`)
 }

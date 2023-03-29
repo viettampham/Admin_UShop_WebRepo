@@ -21,9 +21,11 @@ export class DialogAddProductComponent implements OnInit {
     price:[''],
     size:[''],
     brand:[''],
-    categoryIDs: new FormArray([])
+    categoryIDs: new FormArray([]),
+    typeProductID:['']
   }) ;
   ListCategory: Category[]=[];
+  ListTypeProduct: any;
   // @ts-ignore
   constructor(private api:ApiService,
               private fb:FormBuilder,
@@ -31,6 +33,14 @@ export class DialogAddProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.GetCategory()
+    this.getTypeProduct()
+  }
+
+  getTypeProduct(){
+    this.api.GetTypeProduct().subscribe(res=>{
+      this.ListTypeProduct = res
+      console.log(this.ListTypeProduct)
+    })
   }
 
   ngOnDestroy() {
@@ -64,6 +74,7 @@ export class DialogAddProductComponent implements OnInit {
       alert("Success")
       this.FormAddProduct.reset()
       this.dialogRef.close()
+      location.reload()
     })
   }
 
@@ -78,5 +89,10 @@ export class DialogAddProductComponent implements OnInit {
     }
     console.log(e.target.value)
     console.log(categoryID.value)
+  }
+
+  onSelectTypeProduct(e: any) {
+    this.FormAddProduct.value.typeProductID = e.target.value;
+    console.log(e.target.value)
   }
 }
