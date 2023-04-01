@@ -35,7 +35,7 @@ export class MnCategoryComponent implements OnInit {
       this.dataSource = new MatTableDataSource<Category>(this.ListCategory)
       this.dataSource.paginator = this.paginator;
 
-      console.log(this.ListCategory)
+      //console.log(this.ListCategory)
     })
   }
 

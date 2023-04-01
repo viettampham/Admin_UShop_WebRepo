@@ -28,6 +28,8 @@ import { DialogAddCategoryComponent } from './system-page/Dialog/dialog-add-cate
 import {JwtModule} from "@auth0/angular-jwt";
 import { MnBillComponent } from './system-page/component/mn-bill/mn-bill.component';
 import { DialogViewBillComponent } from './system-page/Dialog/dialog-view-bill/dialog-view-bill.component';
+import { RevenueComponent } from './system-page/component/revenue/revenue.component';
+import {MatSelectModule} from "@angular/material/select";
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -49,6 +51,7 @@ export function tokenGetter() {
     DialogAddCategoryComponent,
     MnBillComponent,
     DialogViewBillComponent,
+    RevenueComponent,
   ],
     imports: [
         BrowserModule,
@@ -65,12 +68,13 @@ export function tokenGetter() {
         MatDialogModule,
         MatButtonModule,
         JwtModule.forRoot({
-          config: {
-            tokenGetter: tokenGetter,
-            allowedDomains: ["example.com"],
-            disallowedRoutes: ["http://example.com/examplebadroute/"],
-          },
+            config: {
+                tokenGetter: tokenGetter,
+                allowedDomains: ["example.com"],
+                disallowedRoutes: ["http://example.com/examplebadroute/"],
+            },
         }),
+        MatSelectModule,
     ],
   providers: [MultilevelMenuService],
   bootstrap: [AppComponent]

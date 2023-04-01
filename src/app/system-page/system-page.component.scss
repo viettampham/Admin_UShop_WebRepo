@@ -46,7 +46,7 @@
       }
       .container{
         @apply rounded-xl bg-black block overflow-hidden;
-        height: 90%;
+        min-height: 654px;
         margin-top: 12px;
 
       }

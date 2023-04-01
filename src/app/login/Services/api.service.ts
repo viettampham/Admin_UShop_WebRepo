@@ -41,4 +41,8 @@ export class ApiService {
   Searchproduct =(request:string)=>this.httpClient.get<any>(`${environment.api_domain}/Product/search-product/${request}`)
   ConfirmBill = (id:string)=> this.httpClient.post<any>(`${environment.api_domain}/Bill/confirm-bill/${id}`,id)
   GetTypeProduct = () => this.httpClient.get<any>(`${environment.api_domain}/TypeProduct/get`)
+  GetRevenue = () => this.httpClient.get<any>(`${environment.api_domain}/Bill/get-revenue`);
+  GetRevenueMonth = (Month:number,Year:number) => this.httpClient.get<any>(`${environment.api_domain}/Bill/get-revenue-month/${Month},${Year}`);
+  GetRatioRevenue = (year:number) => this.httpClient.get<any>(`${environment.api_domain}/Bill/get-ratio/${year}`)
+  GetYearinDB = () => this.httpClient.get<any>(`${environment.api_domain}/Bill/get-list-year`)
 }

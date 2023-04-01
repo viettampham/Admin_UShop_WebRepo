@@ -1,22 +1,25 @@
 <div class="layout-dialog">
   <div class="group-ino grid grid-cols-2 gap-5">
     <div class="info-customer">
-      <p class="text-header">Customer : <span class="text-red-400">{{data.nameCustomer}}</span></p>
-      <p class="text-header">Adress Tranfer : <span class="text-red-400">{{data.addressTranfer}}</span></p>
-      <p class="text-header">Phone Number : <span class="text-red-400">{{data.phoneNumber}}</span></p>
+      <p class="text-header">Khách hàng : <span class="text-blue-400">{{data.fullNameUser}}</span></p>
+      <p class="text-header">Địa chỉ giao hàng: <span class="text-blue-400">{{data.addressTranfer}}</span></p>
+      <p class="text-header">Địa chỉ cụ thể: <span class="text-blue-400">{{data.addressDetail}}</span></p>
+      <p class="text-header">Người nhận hàng : <span class="text-blue-400">{{data.nameCustomer}}</span></p>
+      <p class="text-header">Ngày đặt hàng : <span class="text-blue-400">{{data.dateCreated}}</span></p>
+      <p class="text-header">Số điện thoại : <span class="text-blue-400">{{data.phoneNumber}}</span></p>
     </div>
     <div class="info-bill">
-      <span class="totalbill mx-5">TotalBill : {{data.totalBill}}</span>
+      <span class="totalbill mx-5">Tổng tiền : {{data.totalBill}}</span>
       <span class="pay-notice text-white" style="background-color: {{colorNitice}}">{{status}}</span>
     </div>
   </div>
   <div class="orders mt-5 py-3">
     <div class="order grid grid-cols-5 justify-center items-center">
-      <div class="div flex justify-center items-center">Product</div>
-      <div class="div flex justify-center items-center">Name</div>
-      <div class="div flex justify-center items-center">QuantityOrder</div>
-      <div class="div flex justify-center items-center">Price</div>
-      <div class="div flex justify-center items-center">TotalOrder</div>
+      <div class="div flex justify-center items-center">Sản phẩm</div>
+      <div class="div flex justify-center items-center">Tên</div>
+      <div class="div flex justify-center items-center">Số lượng</div>
+      <div class="div flex justify-center items-center">Giá</div>
+      <div class="div flex justify-center items-center">Tổng tiên</div>
     </div>
   </div>
   <div class="orders">

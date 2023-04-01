@@ -6,6 +6,7 @@ import {MnUserComponent} from "./system-page/component/mn-user/mn-user.component
 import {MnProductComponent} from "./system-page/component/mn-product/mn-product.component";
 import {MnCategoryComponent} from "./system-page/component/mn-category/mn-category.component";
 import {MnBillComponent} from "./system-page/component/mn-bill/mn-bill.component";
+import {RevenueComponent} from "./system-page/component/revenue/revenue.component";
 
 const routes: Routes = [
   {path:"",component:LoginComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
       {path:'manager-product',component:MnProductComponent},
       {path:'manager-category',component:MnCategoryComponent},
       {path:'manager-bill',component:MnBillComponent},
+      {path:'revenue',component:RevenueComponent},
     ]
   },
 

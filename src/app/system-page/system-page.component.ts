@@ -20,6 +20,7 @@ export class SystemPageComponent implements OnInit {
     const tokenObj = this.token();
     this.DisplayName = tokenObj['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'];
     console.log(this.DisplayName)
+
   }
 
   public token = () => {
@@ -48,22 +49,22 @@ export class SystemPageComponent implements OnInit {
 
   appitems = [
     {
-      label: 'User',
+      label: 'Quản lí người dùng',
       faIcon: 'fa-solid fa-user',
       externalRedirect: true,
       link: 'system/manager-user',
     },
     {
-      label: 'Product',
+      label: 'Quản lí danh mục',
       faIcon: 'fa-brands fa-product-hunt',
       items: [
         {
-          label: 'Items',
+          label: 'Sản phẩm',
           link: 'system/manager-product',
           faIcon: 'fa-regular fa-list'
         },
         {
-          label: 'Category',
+          label: 'Thể loại sản phẩm',
           faIcon: 'fa-solid fa-c',
           disabled: false,
           link: 'system/manager-category',
@@ -71,13 +72,22 @@ export class SystemPageComponent implements OnInit {
       ]
     },
     {
-      label: 'Bills',
+      label: 'Thống kê',
       faIcon: 'fa-regular fa-cart-shopping',
       items: [
         {
-          label: 'Bills',
+          label: 'Hóa đơn',
           link: 'system/manager-bill',
           faIcon: 'fa-solid fa-file-invoice',
+          activeIcon: 'favorite',
+          navigationExtras: {
+            queryParams: { order: 'popular', filter: 'new' },
+          }
+        },
+        {
+          label: 'Doanh thu',
+          link: 'system/revenue',
+          faIcon: 'fa-hand-holding-dollar',
           activeIcon: 'favorite',
           navigationExtras: {
             queryParams: { order: 'popular', filter: 'new' },

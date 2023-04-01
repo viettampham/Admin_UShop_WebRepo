@@ -1,0 +1,104 @@
+<div class="layout">
+  <div class="inside-layout">
+    <p class="header">Doanh thu cửa hàng UShop</p>
+    <div class="content-revenue">
+      <div class="revenue-box">
+        <p class="text-xl">
+          <i class="text-xl fa-solid fa-hand-holding-dollar"></i>Tổng quan
+          <!--<select>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+          </select>-->
+        <div action="" class="flex flex-row items-center justify-evenly mb-5">
+          <div class="mr-5">
+            <mat-form-field appearance="fill">
+              <mat-label>Choose one</mat-label>
+              <mat-select [formControl]="selected" [errorStateMatcher]="matcher">
+                <mat-option *ngFor="let x of months" [value]="x" (click)="GetMonth(x)">{{x}}</mat-option>
+              </mat-select>
+              <mat-hint>Chọn tháng</mat-hint>
+              <mat-error *ngIf="selected.hasError('required')">Chọn tháng</mat-error>
+              <mat-error *ngIf="selected.hasError('pattern') && !selected.hasError('required')">
+                Your selection is invalid
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="">
+            <mat-form-field appearance="fill">
+              <mat-label>Choose one</mat-label>
+              <mat-select [formControl]="selected" [errorStateMatcher]="matcher">
+                <mat-option *ngFor="let y of listYearDb" [value]="y" (click)="GetYear(y)">{{y}}</mat-option>
+              </mat-select>
+              <mat-hint>Chọn năm</mat-hint>
+              <mat-error *ngIf="selected.hasError('required')">Chọn năm</mat-error>
+              <mat-error *ngIf="selected.hasError('pattern') && !selected.hasError('required')">
+                Your selection is invalid
+              </mat-error>
+            </mat-form-field>
+          </div>
+        <button class="bg-blue-400 px-5 py-2 text-white" style="border-radius: 4px" (click)="GetRevenueMonth()">Chọn</button>
+        </div>
+        <p class="info-revenue flex flex-row justify-between">
+          <span class=""><i class="dotline fa-regular fa-circle"></i>Số lượng đơn hàng :</span>
+          <span class="">{{data.countBill}}</span>
+        </p><p class="info-revenue flex flex-row justify-between">
+          <span class=""><i class="dotline fa-regular fa-circle"></i>Tổng doanh thu :</span>
+          <span class="">{{data.totalRevenue.toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</span>
+        </p>
+        <p class="info-revenue flex flex-row justify-between">
+          <span class=""><i class="dotline fa-regular fa-circle"></i>Đơn hàng nhiều tiền nhất :</span>
+          <span class="">{{data.maxRevenue.toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</span>
+        </p>
+        <p class="info-revenue flex flex-row justify-between">
+          <span class=""><i class="dotline fa-regular fa-circle"></i>Đơn hàng ít tiền nhất:</span>
+          <span class="">{{data.minRevenue.toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</span>
+        </p>
+      </div>
+    </div>
+    <div class="ratio-revenue">
+      <div class="flex flex-row justify-between items-center">
+        <span class="text-xl" style="border-radius: 4px; border: 1px solid #74b9ff;padding: 8px 16px">Tỉ lệ doanh thu trong năm</span>
+        <mat-form-field appearance="fill">
+          <mat-label>Choose one</mat-label>
+          <mat-select [formControl]="selected" [errorStateMatcher]="matcher">
+            <mat-option *ngFor="let y of listYearDb" [value]="y" (click)="GetRatioYear(y)">{{y}}</mat-option>
+          </mat-select>
+          <mat-hint>Chọn năm</mat-hint>
+          <mat-error *ngIf="selected.hasError('required')">Chọn năm</mat-error>
+          <mat-error *ngIf="selected.hasError('pattern') && !selected.hasError('required')">
+            Your selection is invalid
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="ratio-space" style="min-height: 350px;height: 350px;padding: 0 32px;">
+        <div class="grid-cols-12 gap-8 flex flex-row items-end h-full">
+          <div class="bg-blue-400" style="height: {{ratioJan}}%; width: 20px;">{{ratioJan}}</div>
+          <div class="bg-blue-400" style="height: {{ratioFeb}}%; width: 20px;">{{ratioFeb}}</div>
+          <div class="bg-blue-400" style="height: {{ratioMar}}%; width: 20px;">{{ratioMar}}</div>
+          <div class="bg-blue-400" style="height: {{ratioApr}}%; width: 20px;">{{ratioApr}}</div>
+          <div class="bg-blue-400" style="height: {{ratioMay}}%; width: 20px;">{{ratioMay}}</div>
+          <div class="bg-blue-400" style="height: {{ratioJun}}%; width: 20px;">{{ratioJun}}</div>
+          <div class="bg-blue-400" style="height: {{ratioJul}}%; width: 20px;">{{ratioJul}}</div>
+          <div class="bg-blue-400" style="height: {{ratioAug}}%; width: 20px;">{{ratioAug}}</div>
+          <div class="bg-blue-400" style="height: {{ratioSep}}%; width: 20px;">{{ratioSep}}</div>
+          <div class="bg-blue-400" style="height: {{ratioOct}}%; width: 20px;">{{ratioOct}}</div>
+          <div class="bg-blue-400" style="height: {{ratioNov}}%; width: 20px;">{{ratioNov}}</div>
+          <div class="bg-blue-400" style="height: {{ratioDec}}%; width: 20px;">{{ratioDec}}</div>
+        </div>
+        <div class="grid-cols-12 gap-8 flex flex-row">
+          <div class="text-center" style="width: 20px;" *ngFor="let x of months">{{x}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

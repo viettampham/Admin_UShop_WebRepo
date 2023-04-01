@@ -30,7 +30,8 @@ export class MnBillComponent implements OnInit {
   viewBill(data:any) {
     this.dialog.open(DialogViewBillComponent,{
       data:data,
-      width:"70%"
+      width:"70%",
+      height:"80%"
     })
   }
 

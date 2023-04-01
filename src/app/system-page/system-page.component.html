@@ -5,7 +5,7 @@
     <mat-drawer class="nav-left " mode="side" [(opened)]="opened">
       <div class="flex flex-row items-center my-3">
         <img src="assets/img/logo.jpg" alt="" class="logo w-16 h-16 rounded-full">
-        <span class="text-xl">ShoeStore</span>
+        <span class="text-xl font-semibold">UShop</span>
       </div>
       <div class="h-3/4 overflow-hidden rounded-2xl mt-10" style="background: rgb(208, 241, 239);">
         <ng-material-multilevel-menu [configuration]='config' [items]='appitems' class="mt-5 h-full">
@@ -19,14 +19,15 @@
         </button>
         <div class="user-group">
           <span class="username-text text-base">{{DisplayName}}</span>
-          <i class="fa-solid fa-user icon-user">
+          <div class="icon-user inline-block">
+            <i class="fa-solid fa-user"></i>
             <div class="model-user-action">
               <ul class="action-user">
-                <li class="item"><button>Change Password</button></li>
-                <li class="item" (click)="logout()"><button>Logout</button></li>
+<!--                <li class="item"><span>Đổi mật khẩu</span></li>-->
+                <li class="item" (click)="logout()"><button>Đăng xuất</button></li>
               </ul>
             </div>
-          </i>
+          </div>
         </div>
       </div>
       <div class="container">
