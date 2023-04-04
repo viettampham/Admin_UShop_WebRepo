@@ -55,13 +55,15 @@ export class MnProductComponent implements OnInit{
     }).afterClosed().subscribe((response) => {
       if (response) {
         this.GetListProduct();
+        this.dataSource = new MatTableDataSource<Product>(this.Products);
+        this.dataSource.paginator = this.paginator;
       }
     });
   }
 
 
   ODEitProduct(p:Product) {
-    //console.log(p)
+    console.log(p)
     this.dialog.open(DialogEditProductComponent,{
       width:'80%',
       data:p

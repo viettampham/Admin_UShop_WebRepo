@@ -81,6 +81,18 @@ export class RevenueComponent implements OnInit {
   ratioOct:any;
   ratioNov:any;
   ratioDec:any;
+  Jan:any;
+  Feb:any;
+  Mar:any;
+  Apr:any;
+  May:any;
+  Jun:any;
+  Jul:any;
+  Aug:any;
+  Sep:any;
+  Oct:any;
+  Nov:any;
+  Dec:any;
 
   GetRatioYear(y: any) {
     this.api.GetRatioRevenue(y).subscribe(res=>{
@@ -96,6 +108,19 @@ export class RevenueComponent implements OnInit {
       this.ratioOct = res.ratioOct
       this.ratioNov = res.ratioNov
       this.ratioDec = res.ratioDec
+      this.Jan = res.jan
+      this.Feb = res.feb
+      this.Mar = res.mar
+      this.Apr = res.apr
+      this.May = res.may
+      this.Jun = res.jun
+      this.Jul = res.jul
+      this.Aug = res.aug
+      this.Sep = res.sep
+      this.Oct = res.oct
+      this.Nov = res.nov
+      this.Dec = res.dec
+
     })
   }
 }

@@ -21,12 +21,12 @@
 
       <!-- Name Column -->
       <ng-container matColumnDef="title">
-        <th mat-header-cell *matHeaderCellDef> Title </th>
+        <th mat-header-cell *matHeaderCellDef> Tên </th>
         <td mat-cell *matCellDef="let element"> {{element.name}} </td>
       </ng-container>
 
       <ng-container matColumnDef="action">
-        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <th mat-header-cell *matHeaderCellDef> Hành động </th>
         <td mat-cell *matCellDef="let element">
           <button (click)="handleEdit(element)"><i class="fa-solid fa-pen-to-square text-xl mr-3 hover:text-blue-400"></i></button>
           <button (click)="DeleteCategory(element.categoryID)"><i class="fa-solid fa-trash text-xl hover:text-red-400"></i></button>

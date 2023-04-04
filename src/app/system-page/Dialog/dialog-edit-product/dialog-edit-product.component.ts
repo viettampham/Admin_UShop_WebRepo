@@ -16,6 +16,8 @@ export class DialogEditProductComponent implements OnInit {
   ListCategory: Category[]=[];
   ListCategoryChecked: string[] = [];
   FormEditProduct:any;
+  ListType : any;
+  TypeChecked:any;
 
   constructor(private api:ApiService,
               private fb:FormBuilder,
@@ -24,6 +26,7 @@ export class DialogEditProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.GetCategory()
+    this.GetType()
     this.FormEditProduct = this.fb.group({
       productID:[''],
       name:[''],
@@ -33,12 +36,12 @@ export class DialogEditProductComponent implements OnInit {
       price:[''],
       size:[''],
       brand:[''],
-      categorieIDs: new FormArray([])
+      categorieIDs: new FormArray([]),
+      typeID:['']
     });
     if (this.editData){
 
       this.url = this.editData.imageURL;
-
       this.FormEditProduct.controls['productID'].setValue(this.editData.productID);
       this.FormEditProduct.controls['name'].setValue(this.editData.name);
       this.FormEditProduct.controls['description'].setValue(this.editData.description);
@@ -47,17 +50,18 @@ export class DialogEditProductComponent implements OnInit {
       this.FormEditProduct.controls['price'].setValue(this.editData.price);
       this.FormEditProduct.controls['size'].setValue(this.editData.size);
       this.FormEditProduct.controls['brand'].setValue(this.editData.brand);
+      this.FormEditProduct.controls['typeID'].setValue(this.editData.typeProductID)
 
       for (let c of this.editData.categoryIDs){
         this.ListCategoryChecked.push(c)
       }
-
       const categoryID = this.FormEditProduct.controls['categorieIDs'] as FormArray;
       this.ListCategoryChecked.forEach(x=>{
         categoryID.push(new FormControl(x))
       })
     }
-
+    this.TypeChecked = this.editData.typeProductID
+    //console.log(this.TypeChecked)
   }
 
   onSelectFile(e: any) {
@@ -79,6 +83,12 @@ export class DialogEditProductComponent implements OnInit {
       this.ListCategory = res
     })
   }
+  GetType(){
+    this.api.GetTypeProduct().subscribe(res=>{
+      this.ListType = res
+
+    })
+  }
 
   HandleEditProduct() {
       /*this.FormEditProduct.productID = this.editData.productID;
@@ -92,6 +102,7 @@ export class DialogEditProductComponent implements OnInit {
       this.FormEditProduct.categorieIDs = this.FormEditProduct.controls['categorieIDs']*/
     this.api.EditProduct(this.FormEditProduct.value).subscribe(res=>{
       alert("Cập nhật thành công sản phẩm")
+      this.dialofRef.close()
       location.reload()
     },error => {
       alert("Lỗi")
@@ -120,5 +131,22 @@ export class DialogEditProductComponent implements OnInit {
       categoryID.removeAt(index)
     }
     //console.log(categoryID)
+  }
+
+
+
+
+  onCheck(e: any) {
+    const value = e.target.value
+    //this.TypeChecked = value
+    this.FormEditProduct.value.typeID = value
+    //console.log(value)
+  }
+
+  isCheckedType(id:string) {
+    if (id == this.TypeChecked){
+      return true;
+    }
+    return false;
   }
 }

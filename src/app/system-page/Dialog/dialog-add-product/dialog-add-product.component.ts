@@ -39,7 +39,7 @@ export class DialogAddProductComponent implements OnInit {
   getTypeProduct(){
     this.api.GetTypeProduct().subscribe(res=>{
       this.ListTypeProduct = res
-      console.log(this.ListTypeProduct)
+      //console.log(this.ListTypeProduct)
     })
   }
 
@@ -51,7 +51,7 @@ export class DialogAddProductComponent implements OnInit {
     this.api.GetListCategory().subscribe(res=>{
       // @ts-ignore
       this.ListCategory = res
-      console.log(this.ListCategory)
+      //console.log(this.ListCategory)
     })
   }
 
@@ -62,9 +62,9 @@ export class DialogAddProductComponent implements OnInit {
       reader.onload = (event:any)=>{
         this.url = event.target.result;
       }
-      console.log(e.target.files)
+      //console.log(e.target.files)
       this.FormAddProduct.controls['imageURL'].setValue(this.hostimg+e.target.files[0].name)
-      console.log(e.target.files[0].name)
+      //console.log(e.target.files[0].name)
     }
   }
 
@@ -76,6 +76,7 @@ export class DialogAddProductComponent implements OnInit {
       this.dialogRef.close()
       location.reload()
     })
+    //console.log(this.FormAddProduct.value)
   }
 
   onSelect(e: any) {
@@ -87,12 +88,12 @@ export class DialogAddProductComponent implements OnInit {
       const index = categoryID.controls.findIndex(x => x.value === e.target.value);
       categoryID.removeAt(index);
     }
-    console.log(e.target.value)
-    console.log(categoryID.value)
+    //console.log(e.target.value)
+    //console.log(categoryID.value)
   }
 
   onSelectTypeProduct(e: any) {
     this.FormAddProduct.value.typeProductID = e.target.value;
-    console.log(e.target.value)
+    //console.log(e.target.value)
   }
 }

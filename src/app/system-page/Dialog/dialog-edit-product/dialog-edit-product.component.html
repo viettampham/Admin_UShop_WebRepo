@@ -1,5 +1,5 @@
 <div class="dialog-space">
-  <p class="title-dialog">Add Product</p>
+  <p class="title-dialog">Sửa thông tin sản phẩm</p>
   <div class="section-add-product">
     <div class="section-pickimage">
       <img [src]="url" alt="" class="displayimg">
@@ -9,12 +9,12 @@
     <div class="section-info">
       <form class="example-form form" [formGroup]="FormEditProduct">
         <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Name Product</mat-label>
+          <mat-label>Tên sản phẩm</mat-label>
           <input type="text" matInput placeholder="Enter your name product..." formControlName="name">
         </mat-form-field>
 
         <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Description</mat-label>
+          <mat-label>Mô tả sản phẩm</mat-label>
           <input type="text" matInput placeholder="Description product..." formControlName="description">
         </mat-form-field>
 
@@ -24,7 +24,7 @@
         </mat-form-field>-->
 
         <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Quantity Available</mat-label>
+          <mat-label>Số lượng có sẵn</mat-label>
           <input type="text" matInput placeholder="Quantity Available..." formControlName="quantityAvailable">
         </mat-form-field>
 
@@ -34,7 +34,7 @@
         </mat-form-field>
 
         <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Size</mat-label>
+          <mat-label>Kích cỡ</mat-label>
           <input type="text" matInput placeholder="Size Product..." formControlName="size">
         </mat-form-field>
 
@@ -44,11 +44,20 @@
         </mat-form-field>
 
         <div class="chosecategory">
-          <span>Categorys</span>
+          <span>Thể loại sản phẩm</span>
           <div class="listcategory">
             <div class="" *ngFor="let c of ListCategory">
               <input type="checkbox" [value]="c.categoryID" [checked]="isChecked(c.categoryID)" (change)="onCheckBox($event)" formArrayName="categorieIDs">
               <label [for]="c.categoryID">{{c.name}}</label>
+            </div>
+          </div>
+        </div>
+        <div class="chosecategory">
+          <span>Loại sản phẩm</span>
+          <div class="listcategory">
+            <div class="" *ngFor="let c of ListType">
+              <input type="radio" name="type" [value]="c.id" [checked]="isCheckedType(c.id)" (change)="onCheck($event)" formArrayName="typeID">
+              <label [for]="c.id">{{c.name}}</label>
             </div>
           </div>
         </div>

@@ -17,28 +17,28 @@
 
       <!-- Name Column -->
       <ng-container matColumnDef="title">
-        <th mat-header-cell *matHeaderCellDef> Title </th>
+        <th mat-header-cell *matHeaderCellDef> Tên sản phẩm </th>
         <td mat-cell *matCellDef="let element"> {{element.name}} </td>
       </ng-container>
 
       <!-- Weight Column -->
       <ng-container matColumnDef="size">
-        <th mat-header-cell *matHeaderCellDef> Size </th>
+        <th mat-header-cell *matHeaderCellDef> Kích cỡ </th>
         <td mat-cell *matCellDef="let element"> {{element.size}} </td>
       </ng-container>
 
       <ng-container matColumnDef="price">
-        <th mat-header-cell *matHeaderCellDef>Price</th>
+        <th mat-header-cell *matHeaderCellDef>Giá</th>
         <td mat-cell *matCellDef="let element"> {{element.displayPrice}} </td>
       </ng-container>
 
       <ng-container matColumnDef="brand">
-        <th mat-header-cell *matHeaderCellDef>Brand</th>
+        <th mat-header-cell *matHeaderCellDef>Nhãn hiệu</th>
         <td mat-cell *matCellDef="let element"> {{element.brand}} </td>
       </ng-container>
 
       <ng-container matColumnDef="quantity">
-        <th mat-header-cell *matHeaderCellDef>Quantity</th>
+        <th mat-header-cell *matHeaderCellDef>Số lượng</th>
         <td mat-cell *matCellDef="let element"> {{element.quantityAvailable}} </td>
       </ng-container>
 
@@ -49,7 +49,7 @@
       </ng-container>-->
 
       <ng-container matColumnDef="action">
-        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <th mat-header-cell *matHeaderCellDef> Hành động </th>
         <td mat-cell *matCellDef="let element">
           <button (click)="ODEitProduct(element)"><i class="fa-solid fa-pen-to-square text-xl mr-3 hover:text-blue-400"></i></button>
           <button (click)="DeleteProduct(element.productID)"><i class="fa-solid fa-trash text-xl hover:text-red-400"></i></button>
