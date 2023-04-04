@@ -11,7 +11,7 @@ import {DialogViewBillComponent} from "../../Dialog/dialog-view-bill/dialog-view
 })
 export class MnBillComponent implements OnInit {
   dataSource: any;
-  displayedColumns: string[] = ['Customer', 'PhoneNumber', 'AddressTranfer', 'TotalBill', 'IsPayed', 'action'];
+  displayedColumns: string[] = ['Customer', 'PhoneNumber', 'DateCreated', 'AddressTranfer', 'TotalBill', 'IsPayed', 'action'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   constructor(private api:ApiService,
               private dialog:MatDialog,) { }

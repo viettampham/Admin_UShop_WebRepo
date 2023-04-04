@@ -62,4 +62,12 @@ export class MnUserComponent implements OnInit {
       data:user
     })
   }
+
+  Search() {
+    // @ts-ignore
+    const key = document.forms['search']['key'].value;
+    this.apiService.SearchUser(key).subscribe(res=>{
+      this.dataSource = res;
+    })
+  }
 }

@@ -44,5 +44,6 @@ export class ApiService {
   GetRevenue = () => this.httpClient.get<any>(`${environment.api_domain}/Bill/get-revenue`);
   GetRevenueMonth = (Month:number,Year:number) => this.httpClient.get<any>(`${environment.api_domain}/Bill/get-revenue-month/${Month},${Year}`);
   GetRatioRevenue = (year:number) => this.httpClient.get<any>(`${environment.api_domain}/Bill/get-ratio/${year}`)
-  GetYearinDB = () => this.httpClient.get<any>(`${environment.api_domain}/Bill/get-list-year`)
+  GetYearinDB = () => this.httpClient.get<any>(`${environment.api_domain}/Bill/get-list-year`);
+  SearchUser = (key:string) => this.httpClient.get<any>(`${environment.api_domain}search-user-by-key/${key}`)
 }

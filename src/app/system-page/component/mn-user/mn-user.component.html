@@ -3,10 +3,10 @@
 <div class="component">
   <div class="title">Quản lí người dùng</div>
   <div class="search-add-action">
-    <div class="search-group">
-      <input class="ip-search" type="text" placeholder="Search">
-      <i class="fa-solid fa-magnifying-glass icon icon-search"></i>
-    </div>
+    <form action="" name="search" class="search-group">
+      <input class="ip-search" style="color: black;" name="key" type="text" placeholder="Search">
+      <i class="fa-solid fa-magnifying-glass icon icon-search" (click)="Search()"></i>
+    </form>
     <button (click)="openDialog()"><i class="fa-solid fa-user-plus icon icon-add-user"></i></button>
   </div>
 <!--Table data-->
